@@ -92,8 +92,7 @@ export default function App() {
     return (
     <div className="min-h-screen flex flex-col selection:bg-primary/10 selection:text-primary bg-white">
       {/* Top Bar - Enhanced Branding & Language Switcher */}
-      <div className="bg-primary text-white py-2 px-4 md:px-8 text-[11px] font-bold uppercase tracking-widest flex justify-between items-center relative z-[60]">
-        <div className="flex gap-6 items-center">
+className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white text-primary' : 'text-white/60 hover:text-white'}`}        <div className="flex gap-6 items-center">
           <span className="hidden sm:inline-block font-black text-green-300">{t.foundation}</span>
           <div className="flex gap-4 md:gap-6">
             <a href="tel:01620721797" className="flex items-center gap-1.5 hover:text-green-300 transition-colors">
