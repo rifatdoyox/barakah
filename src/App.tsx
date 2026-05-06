@@ -23,6 +23,7 @@ import {
 import { QURAN_AYATS, TEAM_MEMBERS, PROJECTS, IMPACTS, DONATION_METHODS } from './constants';
 
 type Page = 'home' | 'about' | 'projects' | 'team' | 'donate' | 'contact';
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [lang, setLang] = useState<'bn' | 'en'>('bn');
@@ -77,22 +78,24 @@ export default function App() {
         window.scrollTo(0, 0);
       }}
       className={`text-[13px] font-black uppercase tracking-wider transition-all relative py-2 ${
-        currentPage === to ? 'text-primary' : 'text-slate-400 hover:text-primary'
+        currentPage === to ? 'text-emerald-800' : 'text-slate-400 hover:text-emerald-800'
       }`}
     >
       {label}
       {currentPage === to && (
         <motion.div 
           layoutId="navUnderline"
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-emerald-800"
         />
       )}
     </button>
   );
-    return (
-    <div className="min-h-screen flex flex-col selection:bg-primary/10 selection:text-primary bg-white">
-      {/* Top Bar - Enhanced Branding & Language Switcher */}
-className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white text-primary' : 'text-white/60 hover:text-white'}`}        <div className="flex gap-6 items-center">
+
+  return (
+    <div className="min-h-screen flex flex-col selection:bg-emerald-800/10 selection:text-emerald-800 bg-white">
+      {/* Top Bar - Fixed with solid background */}
+      <div style={{ backgroundColor: '#064e3b' }} className="text-white py-2 px-4 md:px-8 text-[11px] font-bold uppercase tracking-widest flex justify-between items-center relative z-[60]">
+        <div className="flex gap-6 items-center">
           <span className="hidden sm:inline-block font-black text-green-300">{t.foundation}</span>
           <div className="flex gap-4 md:gap-6">
             <a href="tel:01620721797" className="flex items-center gap-1.5 hover:text-green-300 transition-colors">
@@ -107,13 +110,13 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
           <div className="flex gap-2 text-[9px] bg-white/10 rounded-full px-3 py-1 border border-white/10">
             <button 
               onClick={() => setLang('bn')} 
-              className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white text-primary' : 'text-white/60 hover:text-white'}`}
+              className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white text-emerald-800' : 'text-white/60 hover:text-white'}`}
             >
               BN
             </button>
             <button 
               onClick={() => setLang('en')} 
-              className={`px-2 py-0.5 rounded-full transition-all ${lang === 'en' ? 'bg-white text-primary' : 'text-white/60 hover:text-white'}`}
+              className={`px-2 py-0.5 rounded-full transition-all ${lang === 'en' ? 'bg-white text-emerald-800' : 'text-white/60 hover:text-white'}`}
             >
               EN
             </button>
@@ -135,7 +138,8 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
           {currentPage === 'contact' && <ContactContent key="contact" lang={lang} />}
         </AnimatePresence>
       </div>
-            {/* Unique Bottom Navigation */}
+
+      {/* Unique Bottom Navigation */}
       <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-6xl">
         <div className="glass-nav rounded-[40px] px-4 py-3 md:px-10 md:py-4 flex items-center justify-between shadow-2xl border border-white/50 ring-1 ring-black/10">
           
@@ -144,11 +148,11 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
             onClick={() => { setCurrentPage('home'); window.scrollTo(0,0); }} 
             className="flex items-center gap-3 shrink-0"
           >
-            <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center text-white font-black italic shadow-lg shrink-0">
+            <div className="w-10 h-10 bg-emerald-800 rounded-2xl flex items-center justify-center text-white font-black italic shadow-lg shrink-0">
               B
             </div>
             <div className="hidden lg:block text-left">
-              <h1 className="text-sm font-black text-primary leading-none uppercase">{t.foundation}</h1>
+              <h1 className="text-sm font-black text-emerald-800 leading-none uppercase">{t.foundation}</h1>
               <p className="text-[6px] text-slate-400 font-bold uppercase tracking-[0.3em] mt-1">{lang === 'bn' ? 'বরকতের পথে আপনাদের সাথে' : 'Trust in Barakah'}</p>
             </div>
           </button>
@@ -166,7 +170,7 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
           <div className="flex items-center gap-3 md:gap-6 shrink-0">
             <button 
               onClick={() => { setCurrentPage('donate'); window.scrollTo(0,0); }}
-              className="bg-primary text-white p-3 md:px-8 md:py-3.5 rounded-2xl shadow-xl shadow-primary/30 text-[10px] font-black uppercase tracking-widest hover:bg-primary-light transition-all transform hover:-translate-y-1 active:scale-95"
+              className="bg-emerald-800 text-white p-3 md:px-8 md:py-3.5 rounded-2xl shadow-xl shadow-emerald-800/30 text-[10px] font-black uppercase tracking-widest hover:bg-emerald-700 transition-all transform hover:-translate-y-1 active:scale-95"
             >
               <span className="hidden md:inline">{t.donate}</span>
               <HandHelping className="w-5 h-5 md:hidden" />
@@ -177,21 +181,21 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
 
       {/* Footer */}
       <footer className="bg-[#0A1A12] text-white pt-32 pb-40 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald-800/5 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24 relative z-10">
           <div>
             <div className="flex items-center gap-4 mb-10">
-              <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-white font-black italic text-2xl shadow-2xl">B</div>
+              <div className="w-14 h-14 bg-emerald-800 rounded-2xl flex items-center justify-center text-white font-black italic text-2xl shadow-2xl">B</div>
               <div>
                 <h2 className="text-2xl font-black uppercase tracking-tighter">বারাকাহ ফাউন্ডেশন</h2>
-                <p className="text-[10px] text-primary font-black uppercase tracking-[0.3em]">Barakah Foundation</p>
+                <p className="text-[10px] text-emerald-800 font-black uppercase tracking-[0.3em]">Barakah Foundation</p>
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-10 text-balance">
               আমরা একটি অলাভজনক ও সেবামূলক প্রতিষ্ঠান। আমাদের লক্ষ্য দ্বীনি শিক্ষা ও আর্তমানবতার সেবায় নিজেকে নিয়োজিত করা।
             </p>
             <div className="flex gap-6">
-              <a href="https://web.facebook.com/profile.php?id=61579400927393" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all group">
+              <a href="https://web.facebook.com/profile.php?id=61579400927393" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-emerald-800 transition-all group">
                 <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
               <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-red-500 transition-all group cursor-pointer">
@@ -201,7 +205,7 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
           </div>
 
           <div>
-            <h4 className="text-lg font-black mb-10 uppercase tracking-widest text-primary">আমাদের সেবা</h4>
+            <h4 className="text-lg font-black mb-10 uppercase tracking-widest text-emerald-800">আমাদের সেবা</h4>
             <div className="flex flex-col gap-4 text-slate-400 text-xs font-black uppercase tracking-[0.2em]">
               <button onClick={() => { setCurrentPage('home'); window.scrollTo(0, 0); }} className="text-left hover:text-white transition-colors">হোম</button>
               <button onClick={() => { setCurrentPage('about'); window.scrollTo(0, 0); }} className="text-left hover:text-white transition-colors">আমাদের সম্পর্কে</button>
@@ -212,29 +216,29 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
           </div>
 
           <div>
-            <h4 className="text-lg font-black mb-10 uppercase tracking-widest text-primary">যোগাযোগ</h4>
+            <h4 className="text-lg font-black mb-10 uppercase tracking-widest text-emerald-800">যোগাযোগ</h4>
             <div className="space-y-6 text-sm text-slate-400 font-bold">
               <div className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 shrink-0 text-primary" />
+                <MapPin className="w-5 h-5 shrink-0 text-emerald-800" />
                 <span className="leading-snug">{lang === 'bn' ? 'লালমনিরহাট, রংপুর, বাংলাদেশ' : 'Lalmonirhat, Rangpur, Bangladesh'}</span>
               </div>
               <div className="flex items-start gap-4">
-                <Phone className="w-5 h-5 shrink-0 text-primary" />
+                <Phone className="w-5 h-5 shrink-0 text-emerald-800" />
                 <span>01620-721797</span>
               </div>
               <div className="flex items-start gap-4">
-                <Mail className="w-5 h-5 shrink-0 text-primary" />
+                <Mail className="w-5 h-5 shrink-0 text-emerald-800" />
                 <span className="break-all font-mono lowercase">foundationbarakahbd@gmail.com</span>
               </div>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-black mb-10 uppercase tracking-widest text-primary">নিউজলেটার</h4>
+            <h4 className="text-lg font-black mb-10 uppercase tracking-widest text-emerald-800">নিউজলেটার</h4>
             <p className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-6">আমাদের সাম্প্রতিক আপডেট পেতে সাবস্ক্রাইব করুন।</p>
             <div className="relative group">
-              <input type="email" placeholder="ইমেইল অ্যাড্রেস..." className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-primary/50 transition-all font-mono" />
-              <button className="absolute right-2 top-2 bottom-2 bg-primary text-white px-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-primary-light transition-all">সাবমিট</button>
+              <input type="email" placeholder="ইমেইল অ্যাড্রেস..." className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-emerald-800/50 transition-all font-mono" />
+              <button className="absolute right-2 top-2 bottom-2 bg-emerald-800 text-white px-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-emerald-700 transition-all">সাবমিট</button>
             </div>
           </div>
         </div>
@@ -243,7 +247,7 @@ className={`px-2 py-0.5 rounded-full transition-all ${lang === 'bn' ? 'bg-white 
           <p>© 2026 বারাকাহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
           <div className="flex items-center gap-3">
              <span className="opacity-50 lowercase tracking-normal">Handcrafted by</span>
-             <a href="https://doyox.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-light transition-all scale-110 tracking-widest">Doyox</a>
+             <a href="https://doyox.com" target="_blank" rel="noopener noreferrer" className="text-emerald-800 hover:text-emerald-700 transition-all scale-110 tracking-widest">Doyox</a>
           </div>
         </div>
       </footer>
@@ -286,7 +290,7 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-primary">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-emerald-800">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=2000" 
@@ -310,7 +314,7 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
             <div className="flex flex-wrap justify-center lg:justify-start gap-6">
               <button 
                 onClick={() => onPageChange('donate')}
-                className="bg-white text-primary px-12 py-6 rounded-[32px] font-black text-sm uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-100 transition-all flex items-center gap-3 group"
+                className="bg-white text-emerald-800 px-12 py-6 rounded-[32px] font-black text-sm uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-100 transition-all flex items-center gap-3 group"
               >
                 {t.donateBtn}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -346,7 +350,7 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
       <section className="py-24 bg-slate-50 border-b border-slate-100 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-6 mb-8">
-            <BookOpen className="w-8 h-8 text-primary" />
+            <BookOpen className="w-8 h-8 text-emerald-800" />
           </div>
           
           <AnimatePresence mode="wait">
@@ -360,13 +364,13 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
               <p className="text-2xl md:text-5xl font-black mb-8 leading-tight text-slate-800 text-balance italic">
                 "{activeAyat[lang].text}"
               </p>
-              <span className="text-primary font-black text-sm uppercase tracking-widest">{activeAyat[lang].reference}</span>
+              <span className="text-emerald-800 font-black text-sm uppercase tracking-widest">{activeAyat[lang].reference}</span>
             </motion.div>
           </AnimatePresence>
 
           <button 
             onClick={onShuffle}
-            className="group inline-flex items-center gap-3 text-[9px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-all"
+            className="group inline-flex items-center gap-3 text-[9px] font-black uppercase tracking-widest text-slate-400 hover:text-emerald-800 transition-all"
           >
             {t.shuffleBtn} <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
           </button>
@@ -402,7 +406,7 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
       {/* Focus Areas */}
       <section className="py-32 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 text-center mb-24">
-          <span className="text-primary font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">{t.focusLabel}</span>
+          <span className="text-emerald-800 font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">{t.focusLabel}</span>
           <h2 className="text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">{t.focusTitle}</h2>
         </div>
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -416,15 +420,15 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
                  <img src={p.image} className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110" />
                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                  <div className="absolute bottom-8 left-8">
-                   <span className="px-5 py-2 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-full">{p[lang].category}</span>
+                   <span className="px-5 py-2 bg-emerald-800 text-white text-[10px] font-black uppercase tracking-widest rounded-full">{p[lang].category}</span>
                  </div>
                </div>
                <div className="p-10 flex-1 flex flex-col text-center lg:text-left">
-                 <h3 className="text-2xl font-black mb-4 tracking-tighter leading-tight group-hover:text-primary transition-colors">{p[lang].title}</h3>
+                 <h3 className="text-2xl font-black mb-4 tracking-tighter leading-tight group-hover:text-emerald-800 transition-colors">{p[lang].title}</h3>
                  <p className="text-slate-500 text-base leading-relaxed mb-10 flex-1">{p[lang].description}</p>
                  <button 
                   onClick={() => { onPageChange('projects'); window.scrollTo(0,0); }}
-                  className="mx-auto lg:mx-0 w-12 h-12 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm"
+                  className="mx-auto lg:mx-0 w-12 h-12 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center text-emerald-800 group-hover:bg-emerald-800 group-hover:text-white transition-all shadow-sm"
                  >
                    <ArrowRight className="w-5 h-5" />
                  </button>
@@ -437,7 +441,7 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
       {/* CTA Section */}
       <section className="py-32 bg-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-primary p-12 md:p-32 rounded-[100px] text-center text-white relative overflow-hidden">
+          <div className="bg-emerald-800 p-12 md:p-32 rounded-[100px] text-center text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
             <div className="relative z-10">
               <h2 className="text-5xl md:text-7xl font-black mb-10 tracking-tighter leading-none text-balance">
@@ -449,7 +453,7 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
               <div className="flex flex-wrap justify-center gap-6">
                 <button 
                   onClick={() => { onPageChange('contact'); window.scrollTo(0,0); }}
-                  className="bg-white text-primary px-12 py-5 rounded-[32px] font-black text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition-all"
+                  className="bg-white text-emerald-800 px-12 py-5 rounded-[32px] font-black text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition-all"
                 >
                   {lang === 'bn' ? 'যোগাযোগ করুন' : 'Contact Us'}
                 </button>
@@ -502,12 +506,12 @@ function AboutContent({ lang }: { lang: 'bn' | 'en' }) {
         <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">
           {lang === 'bn' ? 'বারাকাহ ফাউন্ডেশন' : 'Barakah Foundation'}
         </h1>
-        <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+        <div className="h-1 w-24 bg-emerald-800 mx-auto rounded-full"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="relative">
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-emerald-800/5 rounded-full blur-3xl"></div>
             <img 
               src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1200" 
               className="rounded-[80px] shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-1000 object-cover aspect-square md:aspect-auto"
@@ -515,15 +519,15 @@ function AboutContent({ lang }: { lang: 'bn' | 'en' }) {
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
           </div>
           <div>
-            <span className="text-primary font-black tracking-[0.5em] text-[10px] uppercase mb-8 block">{t.label}</span>
-            <h2 className="text-5xl md:text-7xl font-black text-slate-900 mb-10 tracking-tighter leading-[0.95] uppercase">{t.titleStart} <br/> <span className="text-primary italic">{t.titleAccent}</span></h2>
+            <span className="text-emerald-800 font-black tracking-[0.5em] text-[10px] uppercase mb-8 block">{t.label}</span>
+            <h2 className="text-5xl md:text-7xl font-black text-slate-900 mb-10 tracking-tighter leading-[0.95] uppercase">{t.titleStart} <br/> <span className="text-emerald-800 italic">{t.titleAccent}</span></h2>
             <p className="text-slate-500 text-lg leading-relaxed mb-10 text-balance">
               {t.desc}
             </p>
             <div className="space-y-8">
               {t.items.map((item, i) => (
                 <div key={i} className="flex gap-6 items-start group">
-                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                  <div className="w-12 h-12 bg-emerald-800/10 rounded-2xl flex items-center justify-center text-emerald-800 group-hover:bg-emerald-800 group-hover:text-white transition-all">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -547,11 +551,11 @@ function ProjectsContent({ lang }: { lang: 'bn' | 'en' }) {
         <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">
           {lang === 'bn' ? 'বারাকাহ ফাউন্ডেশন' : 'Barakah Foundation'}
         </h1>
-        <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+        <div className="h-1 w-24 bg-emerald-800 mx-auto rounded-full"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-24">
-          <span className="text-primary font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">{lang === 'bn' ? 'পবিত্র কর্মযজ্ঞ' : 'Sacred Endeavors'}</span>
+          <span className="text-emerald-800 font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">{lang === 'bn' ? 'পবিত্র কর্মযজ্ঞ' : 'Sacred Endeavors'}</span>
           <h2 className="text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">{lang === 'bn' ? 'আমাদের চলমান প্রকল্পগুলো' : 'Our Ongoing Projects'}</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -561,12 +565,12 @@ function ProjectsContent({ lang }: { lang: 'bn' | 'en' }) {
                  <img src={p.image} className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110" />
                </div>
                <div className="p-12 flex-1 flex flex-col">
-                 <span className="text-primary text-[10px] font-black uppercase tracking-widest mb-4 block underline underline-offset-4">{p[lang].category}</span>
+                 <span className="text-emerald-800 text-[10px] font-black uppercase tracking-widest mb-4 block underline underline-offset-4">{p[lang].category}</span>
                  <h3 className="text-2xl font-black mb-6 tracking-tighter leading-tight">{p[lang].title}</h3>
                  <p className="text-slate-400 text-sm leading-relaxed mb-10 flex-1">{p[lang].description}</p>
                  <div className="pt-8 border-t border-slate-50 flex items-center justify-between">
                     <span className="text-[10px] font-black uppercase text-slate-300">Status: {lang === 'bn' ? 'চলমান' : 'Active'}</span>
-                    <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                    <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-emerald-800 group-hover:bg-emerald-800 group-hover:text-white transition-all">
                       <ArrowRight className="w-5 h-5" />
                     </div>
                  </div>
@@ -586,11 +590,11 @@ function TeamContent({ lang }: { lang: 'bn' | 'en' }) {
         <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">
           {lang === 'bn' ? 'বারাকাহ ফাউন্ডেশন' : 'Barakah Foundation'}
         </h1>
-        <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+        <div className="h-1 w-24 bg-emerald-800 mx-auto rounded-full"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-32">
-          <span className="text-primary font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">{lang === 'bn' ? 'এক দল সাহসী যোদ্ধা' : 'A Team of Brave Warriors'}</span>
+          <span className="text-emerald-800 font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">{lang === 'bn' ? 'এক দল সাহসী যোদ্ধা' : 'A Team of Brave Warriors'}</span>
           <h2 className="text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">{lang === 'bn' ? 'নিবেদিত টিম মেম্বার্স' : 'Dedicated Team Members'}</h2>
         </div>
 
@@ -602,12 +606,12 @@ function TeamContent({ lang }: { lang: 'bn' | 'en' }) {
            </div>
            <div className="grid md:grid-cols-2 gap-8">
              {TEAM_MEMBERS.advisors.map((member, i) => (
-                <div key={i} className="group p-10 bg-slate-50 border border-slate-100 rounded-[40px] flex items-center justify-between hover:bg-primary transition-all duration-500">
+                <div key={i} className="group p-10 bg-slate-50 border border-slate-100 rounded-[40px] flex items-center justify-between hover:bg-emerald-800 transition-all duration-500">
                   <div>
                     <span className="text-[10px] font-black uppercase text-slate-400 mb-2 block group-hover:text-white/40">{lang === 'bn' ? 'সম্মানিত উপদেষ্টা' : 'Honorable Advisor'}</span>
                     <h4 className="text-2xl font-black tracking-tight group-hover:text-white transition-colors">{member[lang]}</h4>
                   </div>
-                  <div className="w-16 h-16 rounded-3xl bg-white border border-slate-200 flex items-center justify-center text-primary font-black group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-3xl bg-white border border-slate-200 flex items-center justify-center text-emerald-800 font-black group-hover:scale-110 transition-transform">
                     {i+1}
                   </div>
                 </div>
@@ -625,16 +629,16 @@ function TeamContent({ lang }: { lang: 'bn' | 'en' }) {
              {TEAM_MEMBERS.leadership.map((m, i) => (
                <div key={i} className="text-center group">
                  <div className="relative w-48 h-48 mx-auto mb-8">
-                    <div className="absolute inset-0 bg-primary/5 rounded-[60px] rotate-6 group-hover:rotate-0 transition-transform duration-500"></div>
-                    <div className="absolute inset-0 bg-white border-2 border-slate-100 rounded-[60px] flex items-center justify-center text-primary shadow-xl group-hover:shadow-primary/20 transition-all">
+                    <div className="absolute inset-0 bg-emerald-800/5 rounded-[60px] rotate-6 group-hover:rotate-0 transition-transform duration-500"></div>
+                    <div className="absolute inset-0 bg-white border-2 border-slate-100 rounded-[60px] flex items-center justify-center text-emerald-800 shadow-xl group-hover:shadow-emerald-800/20 transition-all">
                        <Users className="w-16 h-16 opacity-10 absolute" />
                        <span className="text-6xl font-black italic opacity-5">{m[`name_${lang}`][0]}</span>
                     </div>
                  </div>
                  <h4 className="text-2xl font-black mb-2 tracking-tight">{m[`name_${lang}`]}</h4>
-                 <p className="text-[10px] font-black uppercase tracking-widest text-primary/60">{m[`role_${lang}`]}</p>
+                 <p className="text-[10px] font-black uppercase tracking-widest text-emerald-800/60">{m[`role_${lang}`]}</p>
                  {m.role_bn === 'মেন্টর' && (
-                   <a href="https://web.facebook.com/profile.php?id=61579400927393" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-primary transition-colors">
+                   <a href="https://web.facebook.com/profile.php?id=61579400927393" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-emerald-800 transition-colors">
                      <Facebook className="w-4 h-4" /> Facebook
                    </a>
                  )}
@@ -647,12 +651,12 @@ function TeamContent({ lang }: { lang: 'bn' | 'en' }) {
         <div className="grid lg:grid-cols-2 gap-12">
             {TEAM_MEMBERS.sections.map((s, i) => (
               <div key={i} className="p-12 bg-slate-50 rounded-[60px] border border-slate-100 relative overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-800/5 rounded-bl-full"></div>
                 <h4 className="text-xl font-black mb-12 uppercase tracking-widest pb-6 border-b border-slate-200">{s[`title_${lang}`]}</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                    {s.members.map((m: any, idx) => (
                      <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 hover:scale-105 transition-transform">
-                        <div className="w-2 h-2 rounded-full bg-primary"></div>
+                        <div className="w-2 h-2 rounded-full bg-emerald-800"></div>
                         <span className="font-bold text-slate-700">{m[lang]}</span>
                      </div>
                    ))}
@@ -690,12 +694,12 @@ function DonateContent({ lang }: { lang: 'bn' | 'en' }) {
   }[lang];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="py-32 bg-white selection:bg-accent/20 selection:text-primary">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="py-32 bg-white selection:bg-accent/20 selection:text-emerald-800">
       <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
         <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">
           {lang === 'bn' ? 'বারাকাহ ফাউন্ডেশন' : 'Barakah Foundation'}
         </h1>
-        <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+        <div className="h-1 w-24 bg-emerald-800 mx-auto rounded-full"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-32">
@@ -707,7 +711,7 @@ function DonateContent({ lang }: { lang: 'bn' | 'en' }) {
 
         <div className="grid lg:grid-cols-3 gap-12 mb-32">
           {DONATION_METHODS.map((m) => (
-            <div key={m.type} className="group relative bg-slate-50 border-2 border-slate-100 p-12 lg:p-14 rounded-[80px] text-center hover:border-primary transition-all duration-700">
+            <div key={m.type} className="group relative bg-slate-50 border-2 border-slate-100 p-12 lg:p-14 rounded-[80px] text-center hover:border-emerald-800 transition-all duration-700">
                <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 ${m.color} rounded-[40px] flex items-center justify-center text-4xl shadow-2xl transition-transform group-hover:scale-110 group-hover:rotate-6 text-white`}>
                  {m.emoji}
                </div>
@@ -722,7 +726,7 @@ function DonateContent({ lang }: { lang: 'bn' | 'en' }) {
                     navigator.clipboard.writeText(m.number);
                     alert(lang === 'bn' ? `কপি হয়েছে: ${m.number}` : `Copied: ${m.number}`);
                   }}
-                  className="w-full py-5 rounded-[32px] bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-primary transition-all shadow-xl"
+                  className="w-full py-5 rounded-[32px] bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-emerald-800 transition-all shadow-xl"
                  >
                    {t.copyBtn}
                  </button>
@@ -731,7 +735,7 @@ function DonateContent({ lang }: { lang: 'bn' | 'en' }) {
           ))}
         </div>
 
-        <div className="bg-primary p-12 md:p-20 rounded-[100px] text-white relative overflow-hidden">
+        <div className="bg-emerald-800 p-12 md:p-20 rounded-[100px] text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
              <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
@@ -807,13 +811,13 @@ function ContactContent({ lang }: { lang: 'bn' | 'en' }) {
         <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">
           {lang === 'bn' ? 'বারাকাহ ফাউন্ডেশন' : 'Barakah Foundation'}
         </h1>
-        <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+        <div className="h-1 w-24 bg-emerald-800 mx-auto rounded-full"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-20">
           <div>
-            <span className="text-primary font-black tracking-[0.5em] text-[10px] uppercase mb-8 block">{t.label}</span>
-            <h2 className="text-6xl font-black text-slate-900 mb-10 tracking-tighter leading-none uppercase text-balance">{t.titleStart} <br/> <span className="text-primary italic">{t.titleAccent}</span></h2>
+            <span className="text-emerald-800 font-black tracking-[0.5em] text-[10px] uppercase mb-8 block">{t.label}</span>
+            <h2 className="text-6xl font-black text-slate-900 mb-10 tracking-tighter leading-none uppercase text-balance">{t.titleStart} <br/> <span className="text-emerald-800 italic">{t.titleAccent}</span></h2>
             <div className="space-y-10">
               {[
                 { icon: MapPin, title: t.locTitle, info: lang === 'bn' ? "লালমনিরহাট, রংপুর, বাংলাদেশ" : "Lalmonirhat, Rangpur, Bangladesh", color: "text-blue-500" },
@@ -821,7 +825,7 @@ function ContactContent({ lang }: { lang: 'bn' | 'en' }) {
                 { icon: Mail, title: t.emailTitle, info: "foundationbarakahbd@gmail.com", color: "text-red-500" }
               ].map((item, i) => (
                 <div key={i} className="flex gap-8 group/item">
-                  <div className="w-16 h-16 shrink-0 bg-white rounded-[24px] flex items-center justify-center text-primary shadow-sm group-hover/item:bg-primary group-hover/item:text-white transition-all duration-500">
+                  <div className="w-16 h-16 shrink-0 bg-white rounded-[24px] flex items-center justify-center text-emerald-800 shadow-sm group-hover/item:bg-emerald-800 group-hover/item:text-white transition-all duration-500">
                     <item.icon className="w-7 h-7" />
                   </div>
                   <div>
@@ -846,24 +850,24 @@ function ContactContent({ lang }: { lang: 'bn' | 'en' }) {
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 font-mono">{t.name}</label>
-                    <input required type="text" className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-primary/20 transition-all font-bold placeholder:opacity-30" placeholder={t.placeholderName} />
+                    <input required type="text" className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-emerald-800/20 transition-all font-bold placeholder:opacity-30" placeholder={t.placeholderName} />
                   </div>
                   <div className="space-y-3">
                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 font-mono">{t.phone}</label>
-                    <input required type="text" className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-primary/20 transition-all font-bold placeholder:opacity-30" placeholder={t.placeholderPhone} />
+                    <input required type="text" className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-emerald-800/20 transition-all font-bold placeholder:opacity-30" placeholder={t.placeholderPhone} />
                   </div>
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 font-mono">{t.subject}</label>
-                  <select className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-primary/20 transition-all font-bold text-slate-500">
+                  <select className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-emerald-800/20 transition-all font-bold text-slate-500">
                     {t.subjects.map(s => <option key={s}>{s}</option>)}
                   </select>
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 font-mono">{t.message}</label>
-                  <textarea rows={4} className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-primary/20 transition-all font-bold placeholder:opacity-30 resize-none font-sans" placeholder={t.placeholderMsg}></textarea>
+                  <textarea rows={4} className="w-full bg-slate-50 border-2 border-slate-50 rounded-3xl px-8 py-5 focus:outline-none focus:border-emerald-800/20 transition-all font-bold placeholder:opacity-30 resize-none font-sans" placeholder={t.placeholderMsg}></textarea>
                 </div>
-                <button type="submit" className="w-full bg-primary text-white py-6 rounded-[40px] text-xs font-black uppercase tracking-widest shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-100 transition-all">{t.submit}</button>
+                <button type="submit" className="w-full bg-emerald-800 text-white py-6 rounded-[40px] text-xs font-black uppercase tracking-widest shadow-2xl shadow-emerald-800/20 hover:scale-[1.02] active:scale-100 transition-all">{t.submit}</button>
              </form>
           </div>
         </div>
