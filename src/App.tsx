@@ -148,9 +148,7 @@ export default function App() {
             onClick={() => { setCurrentPage('home'); window.scrollTo(0,0); }} 
             className="flex items-center gap-3 shrink-0"
           >
-            <div className="w-10 h-10 bg-emerald-800 rounded-2xl flex items-center justify-center text-white font-black italic shadow-lg shrink-0">
-              B
-            </div>
+            <img src="/barakah/logo.png" alt="Barakah Foundation Logo" className="w-10 h-10 object-contain shrink-0" />
             <div className="hidden lg:block text-left">
               <h1 className="text-sm font-black text-emerald-800 leading-none uppercase">{t.foundation}</h1>
               <p className="text-[6px] text-slate-400 font-bold uppercase tracking-[0.3em] mt-1">{lang === 'bn' ? 'বরকতের পথে আপনাদের সাথে' : 'Trust in Barakah'}</p>
@@ -185,7 +183,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24 relative z-10">
           <div>
             <div className="flex items-center gap-4 mb-10">
-              <div className="w-14 h-14 bg-emerald-800 rounded-2xl flex items-center justify-center text-white font-black italic text-2xl shadow-2xl">B</div>
+              <img src="/barakah/logo.png" alt="Barakah Foundation Logo" className="w-14 h-14 object-contain" />
               <div>
                 <h2 className="text-2xl font-black uppercase tracking-tighter">বারাকাহ ফাউন্ডেশন</h2>
                 <p className="text-[10px] text-emerald-800 font-black uppercase tracking-[0.3em]">Barakah Foundation</p>
@@ -255,6 +253,7 @@ export default function App() {
   );
 }
 
+// ------------------ HomeContent ------------------
 function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn' | 'en', onPageChange: (p: Page) => void, activeAyat: any, onShuffle: () => void }) {
   const t = {
     bn: {
@@ -472,6 +471,7 @@ function HomeContent({ lang, onPageChange, activeAyat, onShuffle }: { lang: 'bn'
   );
 }
 
+// ------------------ AboutContent ------------------
 function AboutContent({ lang }: { lang: 'bn' | 'en' }) {
   const t = {
     bn: {
@@ -544,6 +544,7 @@ function AboutContent({ lang }: { lang: 'bn' | 'en' }) {
   );
 }
 
+// ------------------ ProjectsContent ------------------
 function ProjectsContent({ lang }: { lang: 'bn' | 'en' }) {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="py-32 bg-slate-50">
@@ -583,6 +584,7 @@ function ProjectsContent({ lang }: { lang: 'bn' | 'en' }) {
   );
 }
 
+// ------------------ TeamContent ------------------
 function TeamContent({ lang }: { lang: 'bn' | 'en' }) {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="py-32 bg-white">
@@ -669,6 +671,7 @@ function TeamContent({ lang }: { lang: 'bn' | 'en' }) {
   );
 }
 
+// ------------------ DonateContent ------------------
 function DonateContent({ lang }: { lang: 'bn' | 'en' }) {
   const t = {
     bn: {
@@ -763,6 +766,7 @@ function DonateContent({ lang }: { lang: 'bn' | 'en' }) {
   );
 }
 
+// ------------------ ContactContent ------------------
 function ContactContent({ lang }: { lang: 'bn' | 'en' }) {
   const t = {
     bn: {
